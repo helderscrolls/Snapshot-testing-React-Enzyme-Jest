@@ -42,7 +42,7 @@ describe("App", () => {
 
     it("should render other advice", done => {
       const appWrapper = shallow(<App />);
-      appWrapper.find("button").simulate("click");
+      appWrapper.find("ShowOtherAdviceButton").simulate("click");
       setImmediate(() => {
         expect(appWrapper).toMatchSnapshot();
         done();
