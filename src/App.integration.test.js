@@ -1,6 +1,6 @@
 import React from "react";
 import App from "./App";
-import { shallow, mount } from "enzyme";
+import { mount } from "enzyme";
 import fetchMock from "fetch-mock";
 
 describe("App", () => {
@@ -16,15 +16,16 @@ describe("App", () => {
 
   describe("before advice fetched", () => {
     it("renders loading indicator", () => {
-      const appWrapper = shallow(<App />);
+      const appWrapper = mount(<App />);
       expect(appWrapper).toMatchSnapshot();
     });
   });
 
   describe("after advice fetched", () => {
     it("renders advice", done => {
-      const appWrapper = shallow(<App />);
+      const appWrapper = mount(<App />);
       setImmediate(() => {
+        appWrapper.update();
         expect(appWrapper).toMatchSnapshot();
         done();
       });
@@ -44,6 +45,7 @@ describe("App", () => {
       const appWrapper = mount(<App />);
       appWrapper.find("button").simulate("click");
       setImmediate(() => {
+        appWrapper.update();
         expect(appWrapper).toMatchSnapshot();
         done();
       });
