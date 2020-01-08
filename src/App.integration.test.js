@@ -1,6 +1,6 @@
 import React from "react";
 import App from "./App";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import fetchMock from "fetch-mock";
 
 describe("App", () => {
@@ -41,8 +41,8 @@ describe("App", () => {
     });
 
     it("should render other advice", done => {
-      const appWrapper = shallow(<App />);
-      appWrapper.find("ShowOtherAdviceButton").simulate("click");
+      const appWrapper = mount(<App />);
+      appWrapper.find("button").simulate("click");
       setImmediate(() => {
         expect(appWrapper).toMatchSnapshot();
         done();

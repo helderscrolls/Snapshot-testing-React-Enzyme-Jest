@@ -31,16 +31,29 @@ exports[`App before advice fetched renders loading indicator 1`] = `
 `;
 
 exports[`App when hitting "Show other advice" button should render other advice 1`] = `
-<div
-  className="App"
->
-  <p
-    className="Advice"
+<App>
+  <div
+    className="App"
   >
-    Always trust random advice.
-  </p>
-  <ShowOtherAdviceButton
-    loadAdvice={[Function]}
-  />
-</div>
+    <p
+      className="Advice"
+    >
+      …
+    </p>
+    <ShowOtherAdviceButton
+      loadAdvice={[Function]}
+    >
+      <div
+        className="App"
+      >
+        <button
+          className="Advice-other-advice-button"
+          onClick={[Function]}
+        >
+          Show other advice
+        </button>
+      </div>
+    </ShowOtherAdviceButton>
+  </div>
+</App>
 `;
